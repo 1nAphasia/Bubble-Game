@@ -9,9 +9,16 @@ public class EnemyBehavior : MonoBehaviour
         Idle,
         Patrolling,
         Jumping,
-        InBubble
+        InBubble,
+        Attacking
     }
     public EnemyState currentState;
+
+    public float moveSpeed=3f;
+    public float attackRange=1.5f;
+    
+    private Animator _animator;
+    private Transform _player;
     private Rigidbody2D _rb;
 
     // Start is called before the first frame update
@@ -19,11 +26,17 @@ public class EnemyBehavior : MonoBehaviour
     {
         currentState=EnemyState.Idle;
         _rb=GetComponent<Rigidbody2D>();
+        _player=GameObject.Find("Capsule").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        HandleBehaviour();
+        //UpdateAnimator();
+    }
+
+    void HandleBehaviour(){
         switch(currentState)
         {
             case EnemyState.InBubble:
@@ -33,10 +46,31 @@ public class EnemyBehavior : MonoBehaviour
             }
             case EnemyState.Idle:
             {
-                
-                _rb.gravityScale=0;
+                _rb.gravityScale=1;
+                if (Vector2.Distance(transform.position, _player.position) < 5f)
+                {
+                    currentState = EnemyState.Patrolling;
+                }
                 break;
             }
+            case EnemyState.Patrolling:
+            {
+                Patrol();
+                if (Vector2.Distance(transform.position, _player.position) < attackRange)
+                {
+                    currentState = EnemyState.Attacking;
+                }
+                break;
+            }
+            case EnemyState.Attacking:
+            {
+                //Attack();
+                break;
+            }
+
         }
+    }
+    void Patrol(){
+        
     }
 }
