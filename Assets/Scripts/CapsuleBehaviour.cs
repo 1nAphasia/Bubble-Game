@@ -16,6 +16,16 @@ public class CapsuleBehaviour : MonoBehaviour
         floating,
         inBubble
     }
+
+    public enum bubbleColor{
+        red,
+        orange,
+        yellow,
+        green,
+        cyan,
+        blue,
+        purple
+    }
     //public float movingSpeed=4f;
     public float maxSpeed=5f;
     public float acceleration=5f;
@@ -23,14 +33,14 @@ public class CapsuleBehaviour : MonoBehaviour
     public float JumpVelocity=5f;
     public LayerMask groundLayer;
     public GameObject bubble;
+    public bubbleColor currentColor=bubbleColor.red;
     public float bubbleSpeed=10f;
-
+    public Vector3 viewDir;
     private CapsuleCollider2D _col;
     private Rigidbody2D _rb;
     private bool _isJumping;
     private bool _isShooting;
     public bool isGrounded;
-
     private float _vInput;
     void Start()
     {
@@ -41,7 +51,14 @@ public class CapsuleBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _isShooting|=Input.GetKeyDown(KeyCode.J);
+        Vector3 mousePos=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z=0;
+        viewDir=(mousePos-transform.position).normalized;
+        //_isShooting|=Input.GetKeyDown(KeyCode.J);
+        if(Input.GetMouseButtonDown(0)){
+            _isShooting=true;
+        }
+        
         _isJumping |=Input.GetKeyDown(KeyCode.Space);
         //Simple movementcontrol using acceleration(friction force not dealed yet)
         _vInput=Input.GetAxisRaw("Horizontal");
@@ -53,7 +70,6 @@ public class CapsuleBehaviour : MonoBehaviour
             currentSpeed=Mathf.MoveTowards(currentSpeed,0,acceleration*Time.deltaTime);
         }
         currentSpeed=Mathf.Clamp(currentSpeed,-maxSpeed,maxSpeed);
-
         _rb.velocity=new Vector2(currentSpeed,_rb.velocity.y);
     }
 
@@ -65,9 +81,9 @@ public class CapsuleBehaviour : MonoBehaviour
         }
         _isJumping=false;
         if(_isShooting){
-            GameObject newBubble=Instantiate(bubble,transform.position+new Vector3(0,1,0),new quaternion(0,0,0,0)) as GameObject;
+            GameObject newBubble=Instantiate(bubble,transform.position+viewDir,new quaternion(0,0,0,0)) as GameObject;
             Rigidbody2D bubbleRB=newBubble.GetComponent<Rigidbody2D>();
-            bubbleRB.velocity=new Vector2(1,0)*bubbleSpeed;
+            bubbleRB.velocity=viewDir*bubbleSpeed;
             Debug.Log("Shot a Bubble!");
         }
         _isShooting=false;
