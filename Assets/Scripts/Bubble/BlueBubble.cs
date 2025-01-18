@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BlueBubble : Bubble
 {
     Vector3 CapturedScale = new Vector3(3f, 3f, 3f);
     float floatingTime = 3f;
+    public float capturingTime = 0.3f;
+    public Vector3 bubbleInflatingScale = new Vector3(3f, 3f, 3f);
     public CaptureState captureState { get; set; }
     public override void Awake()
     {
@@ -14,11 +17,19 @@ public class BlueBubble : Bubble
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Enemy")
+        if (other.gameObject.name == "Enemy" && stateMachine.currentState!=captureState)
         {
             targetObject = other.gameObject;
             stateMachine.ChangeState(captureState);
             CapturingEnemy();
+        }
+
+        if (other.gameObject.name == "Player" && stateMachine.currentState != captureState)
+        {
+            targetObject = other.gameObject;
+            //这一行设置Player状态机 也就是中断玩家的输入的Captured状态
+            stateMachine.ChangeState(captureState);
+            CapturingPlayer();
         }
 
     }
@@ -32,21 +43,6 @@ public class BlueBubble : Bubble
         StartCoroutine(MorphingBubble(CapturedScale, 0.3f));
         StartCoroutine(StartingBubble(0.3f));
         StartCoroutine(SetEnemyState(floatingTime, EnemyBehavior.EnemyState.Idle));
-    }
-
-    private IEnumerator MorphingBubble(Vector3 targetScale, float time)
-    {
-        Vector3 InitialScale = transform.localScale;
-        float elapsedTime = 0f;
-        while (elapsedTime < time)
-        {
-            Vector3 EnemyPos = targetObject.transform.position;
-            transform.position = Vector3.Lerp(transform.position, EnemyPos, elapsedTime / time);
-            transform.localScale = Vector3.Lerp(InitialScale, targetScale, elapsedTime / time);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        transform.localScale = targetScale;
     }
 
     private IEnumerator SlowDownEnemy(float time)
@@ -75,5 +71,52 @@ public class BlueBubble : Bubble
         yield return new WaitForSeconds(delay);
         enemyScript.currentState = EnemyBehavior.EnemyState.InBubble;
 
+    }
+
+    private void CapturingPlayer()
+    {
+        StartCoroutine(SettingPlayers(capturingTime));
+        StartCoroutine(MorphingBubble(bubbleInflatingScale, capturingTime));
+        StartCoroutine(SettingPlayersStatusMachine(floatingTime));
+    }
+
+    private IEnumerator SettingPlayers(float time)
+    {
+        Rigidbody2D playerRB = targetObject.GetComponent<Rigidbody2D>();
+        Rigidbody2D bubbleRB = GetComponent<Rigidbody2D>();
+        //如果是已经得到了bubble的RigidBody2d对象可以替换成
+        //Rigidbody2D bubbleRB=_rb;
+        float elapsedTime = 0f;
+        while (elapsedTime < time)
+        {
+            //通过插值尝试将Player的Pos和Velo平滑过渡到与泡泡相同
+            targetObject.transform.position = Vector3.Lerp(targetObject.transform.position, transform.position, elapsedTime / time);
+            playerRB.velocity = Vector3.Lerp(playerRB.velocity, bubbleRB.velocity, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        targetObject.transform.position = transform.position;
+        playerRB.velocity = bubbleRB.velocity;
+    }
+    private IEnumerator MorphingBubble(Vector3 targetScale, float time)
+    {
+        Vector3 InitialScale = transform.localScale;
+        float elapsedTime = 0f;
+        while (elapsedTime < time)
+        {
+            //同样的根据时间来将Scale和transform.position动态插值到目标值。
+            Vector3 EnemyPos = targetObject.transform.position;
+            transform.position = Vector3.Lerp(transform.position, EnemyPos, elapsedTime / time);
+            transform.localScale = Vector3.Lerp(InitialScale, targetScale, elapsedTime / time);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        transform.localScale = targetScale;
+    }
+    private IEnumerator SettingPlayersStatusMachine(float time)
+    {
+        yield return new WaitForSeconds(time);
+        //首先获取player状态机状态,如果还在inBubble就要改成air,如果不在inbubble就啥也不做
+        //思路是在泡泡结束之后如果角色没有操作就直接修改角色的状态使其下坠。 
     }
 }
