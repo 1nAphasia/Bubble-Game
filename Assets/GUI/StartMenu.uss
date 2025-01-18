@@ -1,1 +1,19 @@
-VisualElement {}
+#StartMenuContainer {
+  background-image: url("project://database/Assets/Background/cover%20pure.png?fileID=2800000&guid=a58377f7437aebb4ea1b4012cbb98e3e&type=3#cover pure");
+}
+
+* {
+  -unity-font: url("project://database/Assets/GUI/Fonts/SourceHanSansSC-Light-2.otf?fileID=12800000&guid=ad553ff3122ec7a41a542401fce39e57&type=3#SourceHanSansSC-Light-2");
+  -unity-font-definition: none;
+}
+
+Button {
+  border-width: 0;
+  overflow: visible;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.Button-Hover {
+  background-color: rgba(255, 255, 255, 200);
+}

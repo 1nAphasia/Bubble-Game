@@ -20,19 +20,46 @@ public class StartMenuBehaviour : MonoBehaviour
         rootVisualElement.Add(startMenu);
 
         // 获取按钮控件
-        Button newGameButton = rootVisualElement.Q<Button>("NewGameButton");
-        Button quitButton = rootVisualElement.Q<Button>("QuitButton");
+        Button StartButton = rootVisualElement.Q<Button>("StartButton");
+        Button SettingsButton=rootVisualElement.Q<Button>("SettingsButton");
+        Button quitButton = rootVisualElement.Q<Button>("ExitButton");
 
         // 为 New Game 按钮添加点击事件
-        newGameButton.clicked += () => LoadFirstLevel();
+        StartButton.clicked += () => LoadFirstLevel();
 
         // 为 Quit 按钮添加点击事件（可选）
         quitButton.clicked += () => QuitGame();
+
+        StartButton.RegisterCallback<MouseEnterEvent>(evt=>{
+            StartButton.AddToClassList("Button-Hover");
+        });
+
+        SettingsButton.RegisterCallback<MouseEnterEvent>(evt=>{
+            SettingsButton.AddToClassList("Button-Hover");
+        });
+
+        quitButton.RegisterCallback<MouseEnterEvent>(evt=>{
+            quitButton.AddToClassList("Button-Hover");
+        });
+
+        StartButton.RegisterCallback<MouseLeaveEvent>(evt=>{
+            StartButton.RemoveFromClassList("Button-Hover");
+        });
+
+        SettingsButton.RegisterCallback<MouseLeaveEvent>(evt=>{
+            SettingsButton.RemoveFromClassList("Button-Hover");
+        });
+
+        quitButton.RegisterCallback<MouseLeaveEvent>(evt=>{
+            quitButton.RemoveFromClassList("Button-Hover");
+        });
+
     }
 
     void LoadFirstLevel()
     {
         // 加载游戏的第一个关卡
+        Debug.Log("Start Loading!");
         SceneManager.LoadScene(firstLevelSceneName);
     }
 
