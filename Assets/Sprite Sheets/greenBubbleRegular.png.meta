@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: greenBubbleRegular_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 18
+        width: 136
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 290c55fcbeb113b4e9a985f6a211e20a
+      internalID: -577421347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greenBubbleRegular_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 19
+        width: 136
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e1b548bf6083e42b0bd74033a1f59e
+      internalID: -2136586948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greenBubbleRegular_2
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 22
+        width: 135
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8daf14ba3d539a4448ff4419cf15ce19
+      internalID: -205123757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greenBubbleRegular_3
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 21
+        width: 136
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdfe49dbc6a46234eba5982eeccdd746
+      internalID: 907850779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greenBubbleRegular_4
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 18
+        width: 136
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee860f3a080cbce40946946c24d9d20d
+      internalID: 767358964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greenBubbleRegular_5
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 12
+        width: 136
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1617213934da744bae8d06231a7bed7
+      internalID: 150479570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greenBubbleRegular_6
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 6
+        width: 137
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029ef92a431db0041872566bf52db8e0
+      internalID: 201441438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: greenBubbleRegular_7
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 12
+        width: 136
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17d1fa3ad3361a408e6a2d95dce39e3
+      internalID: 1144071246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +274,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      greenBubbleRegular_0: -577421347
+      greenBubbleRegular_1: -2136586948
+      greenBubbleRegular_2: -205123757
+      greenBubbleRegular_3: 907850779
+      greenBubbleRegular_4: 767358964
+      greenBubbleRegular_5: 150479570
+      greenBubbleRegular_6: 201441438
+      greenBubbleRegular_7: 1144071246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
