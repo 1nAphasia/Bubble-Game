@@ -18,7 +18,7 @@ public class HUDController : MonoBehaviour
 
         rootVisualElement=GetComponent<UIDocument>().rootVisualElement;
 
-        HPBar=rootVisualElement.Q<ProgressBar>("progressBar");
+        HPBar=rootVisualElement.Q<ProgressBar>("HPBar");
         
         UpdateHUD();
     }
