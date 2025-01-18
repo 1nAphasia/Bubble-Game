@@ -23,6 +23,11 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
 
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            stateMachine.ChangeState(player.primaryAttack);
+        }
+
         if (player.isGroundDetected())
         {
             stateMachine.ChangeState(player.idleState);

@@ -23,9 +23,26 @@ public class PlayerPrimaryAttack : PlayerState
         {
             comboCounter = 0;
         }
-        GameObject newBubble = Player.Instantiate(player.bubble, player.transform.position, new quaternion(0, 0, 0, 0)) as GameObject;
+
+        Vector3 mouseScreenPosition = Input.mousePosition;
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
+        int attackDir = 0;
+        Debug.Log(mouseWorldPosition.x);
+        Debug.Log(player.transform.position.x);
+        if(mouseWorldPosition.x >= player.transform.position.x)
+        {
+            attackDir = 1;
+        }
+        else
+        {
+            attackDir = -1;
+        }
+
+        GameObject newBubble = Player.Instantiate(player.bubble, 
+            new Vector3(player.transform.position.x + 1.2f * attackDir, player.transform.position.y, 0), 
+            new quaternion(0, 0, 0, 0)) as GameObject;
         Rigidbody2D bubbleRB = newBubble.GetComponent<Rigidbody2D>();
-        bubbleRB.velocity =new Vector2(player.facingDir * player.bubbleSpeed, 0);
+        bubbleRB.velocity =new Vector2(attackDir * player.bubbleSpeed, 0);
         Debug.Log("Shot a Bubble!");
         //player.anim.SetInteger("ComboCounter",comboCounter);
     }

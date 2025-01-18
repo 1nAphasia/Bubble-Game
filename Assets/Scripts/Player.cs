@@ -17,8 +17,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
 
-    public GameObject bubble;
-    public float bubbleSpeed = 10f;
+    [Header("Bubble info")]
+    [SerializeField] public GameObject bubble ;
+    [SerializeField] public float bubbleSpeed = 10f;
 
     public int facingDir { get; private set; } = 1;
     public bool facingRight { get; private set; } = true;
