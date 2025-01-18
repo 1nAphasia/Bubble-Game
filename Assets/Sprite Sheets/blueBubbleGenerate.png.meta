@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6131f186697972a4abdbc5c3c56176f7
+guid: d8fb98d39b3ee35489794f35f5dfed95
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: blueBubbleGenerate_0
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 63
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8329dfe53538d5a4f9dd10dc07a73f0f
+      internalID: -1539840608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueBubbleGenerate_1
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 55
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd339d7bfa30c24d855101c53e37a43
+      internalID: -1083399827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueBubbleGenerate_2
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 46
+        width: 73
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41459a5dfa5df174c8eca330b6b47964
+      internalID: 313342636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueBubbleGenerate_3
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 29
+        width: 124
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39ac9a67ddfee04396175f4b7a8f776
+      internalID: -1721176271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueBubbleGenerate_4
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 17
+        width: 136
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4dfdc3f986df9d4a99938387a3d607a
+      internalID: -881751649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +211,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      blueBubbleGenerate_0: -1539840608
+      blueBubbleGenerate_1: -1083399827
+      blueBubbleGenerate_2: 313342636
+      blueBubbleGenerate_3: -1721176271
+      blueBubbleGenerate_4: -881751649
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
