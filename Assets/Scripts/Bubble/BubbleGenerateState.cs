@@ -12,7 +12,7 @@ public class BubbleGenerateState : BubbleState
     public override void Enter()
     {
         base.Enter();
-        stateTimer = 0.4f;
+        stateTimer = 0.2f;
     }
 
     public override void Exit()

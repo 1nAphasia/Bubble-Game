@@ -39,7 +39,7 @@ public class PlayerPrimaryAttack : PlayerState
             attackDir = -1;
         }
 
-        GameObject newBubble = Player.Instantiate(player.bubble,
+        GameObject newBubble = Player.Instantiate(player.bubble[player.bubble_choice],
             bulletSpawnPosition, 
             new quaternion(0, 0, 0, 0)) as GameObject;
         Rigidbody2D bubbleRB = newBubble.GetComponent<Rigidbody2D>();
