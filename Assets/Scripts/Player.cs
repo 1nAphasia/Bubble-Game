@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
     public PlayerAirState airState { get; private set; }
 
     public PlayerPrimaryAttack primaryAttack { get; private set; }
+
+    public PlayerInBubbleState inBubbleState { get; private set; }
     #endregion
 
     private void Awake()
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
         airState = new PlayerAirState(this, stateMachine, "Jump");
 
         primaryAttack = new PlayerPrimaryAttack(this, stateMachine, "Attack");
+        inBubbleState = new PlayerInBubbleState(this, stateMachine, "Idle");
     }
 
     private void Start()
