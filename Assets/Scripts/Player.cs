@@ -18,9 +18,10 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
 
     [Header("Bubble info")]
-    [SerializeField] public GameObject bubble ;
+    [SerializeField] public GameObject[] bubble ;
     [SerializeField] public float bubbleSpeed = 10f;
 
+    public int bubble_choice = 0;
     public int facingDir { get; private set; } = 1;
     public bool facingRight { get; private set; } = true;
 
@@ -67,6 +68,10 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            bubble_choice = (bubble_choice+1)%bubble.Length;
+        }
     }
 
     public void AnimationTrigger()=>stateMachine.currentState.AnimationFinishTrigger();
