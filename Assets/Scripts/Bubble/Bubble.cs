@@ -52,7 +52,7 @@ public class Bubble : MonoBehaviour
         stateMachine.Initialize(generateState);
     }
 
-    private void Update()
+    protected void Update()
     {
         stateMachine.currentState.Update();
     }

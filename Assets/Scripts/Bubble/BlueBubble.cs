@@ -24,14 +24,17 @@ public class BlueBubble : Bubble
             CapturingEnemy();
         }
 
-        if (other.gameObject.name == "Player" && stateMachine.currentState != captureState)
+        else if (other.gameObject.name == "Player" && stateMachine.currentState != captureState)
         {
             targetObject = other.gameObject;
             //这一行设置Player状态机 也就是中断玩家的输入的Captured状态
             stateMachine.ChangeState(captureState);
+            Player player = targetObject.GetComponent<Player>();
+            if (player != null) {
+                player.stateMachine.ChangeState(player.inBubbleState);
+            }
             CapturingPlayer();
         }
-
     }
     private void CapturingEnemy()
     {
