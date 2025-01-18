@@ -8216,6 +8216,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   currentState: 0
+  isAttackCoolDown: 1
+  Bullet: {fileID: 2323602764995419931, guid: 40e967ab0398fee4bbf777cb61680313, type: 3}
 --- !u!50 &433410666
 Rigidbody2D:
   serializedVersion: 4

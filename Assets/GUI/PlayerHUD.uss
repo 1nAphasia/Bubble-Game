@@ -7,3 +7,12 @@
   background-color: #ff0000; /* 进度条颜色 */
   border-radius: 5px; /* 圆角 */
 }
+
+#GameLoseMenu {
+  background-color: rgba(255, 255, 255, 128);
+  border-radius: 8px;
+  transition: 0.2s ease-in-out;
+}
+#RestartButton:hover {
+  background-color: rgb(30, 227, 23);
+}
