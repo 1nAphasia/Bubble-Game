@@ -289,4 +289,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   bubble: {fileID: 4885471105908556629, guid: caf1555eea6f8e14e94fe6f7b1ed1d16, type: 3}
-  bubbleSpeed: 10
+  bubbleSpeed: 15

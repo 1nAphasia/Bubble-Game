@@ -27,6 +27,7 @@ public class BubbleBehaviour : MonoBehaviour
     float floatingTime=3f;
     float capturingTime=0.3f;
     Vector3 CapturedScale=new Vector3(3f,3f,3f);
+    bool firstCapture=true;
 
     private bubbleStatus _st;
     private Rigidbody2D _rb;
@@ -69,12 +70,14 @@ public class BubbleBehaviour : MonoBehaviour
 
     }   
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.name=="Enemy"){
+        if(other.gameObject.name=="Enemy"&&firstCapture){
+            firstCapture=false;
             targetObject=other.gameObject;
             _st=bubbleStatus.capturing_enemy;
             CapturingEnemy();
         }
-        if(other.gameObject.name=="Player"){
+        if(other.gameObject.name=="Player"&&firstCapture){
+            firstCapture=false;
             targetObject=other.gameObject;
             _st=bubbleStatus.carrying_player;
             Debug.Log("Player Touched");
