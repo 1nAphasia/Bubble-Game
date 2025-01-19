@@ -22,7 +22,7 @@ public class BlueBubble : Bubble
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Enemy" && stateMachine.currentState!=captureState)
+        if (other.gameObject.name.Contains("Enemy") && stateMachine.currentState!=captureState)
         {
             targetObject = other.gameObject;
             EnemyBehavior enemy = targetObject.GetComponent<EnemyBehavior>();
