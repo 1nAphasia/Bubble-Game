@@ -15,6 +15,15 @@ public class BlueBubble : Bubble
         captureState = new CaptureState(this, stateMachine, "Floating");
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        if(targetObject == null && stateMachine.currentState == captureState)
+        {
+            Vanish();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "Enemy" && stateMachine.currentState!=captureState)

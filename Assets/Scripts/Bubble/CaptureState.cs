@@ -21,6 +21,10 @@ public class CaptureState : BubbleState
         base.Update();
         rb.velocity = new Vector2(0, 1);
         rb.gravityScale = 0f;
+        if(bubble.targetObject == null)
+        {
+            stateMachine.ChangeState(bubble.vanishState);
+        }
         bubble.targetObject.GetComponent<Rigidbody2D>().velocity = rb.velocity;
         if (stateTimer <= 0)
         {
