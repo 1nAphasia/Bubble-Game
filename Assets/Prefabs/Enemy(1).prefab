@@ -197,11 +197,11 @@ MonoBehaviour:
   moveSpeed: 3
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   currentState: 0
   isAttackCoolDown: 1
   isFalling: 0
-  Bullet: {fileID: 0}
-  enemyHeight: 0
+  Bullet: {fileID: 2323602764995419931, guid: 40e967ab0398fee4bbf777cb61680313, type: 3}
+  enemyHeight: 2.6
   oneHPTakenPerHeight: 2
   inbubble: {fileID: 0}

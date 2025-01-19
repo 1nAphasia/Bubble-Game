@@ -29,7 +29,7 @@ public class EnemyBehavior : MonoBehaviour
     private float step;
     private float startFallHeight;
     private Rigidbody2D _rb;
-    private CapsuleCollider2D _col;
+    private BoxCollider2D _col;
     private GameObject _player;
     private int _enemyHP = 5;
     private Coroutine damageCoroutine;
@@ -45,8 +45,9 @@ public class EnemyBehavior : MonoBehaviour
         currentState = EnemyState.Idle;
         _rb = GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
-        _col = GetComponent<CapsuleCollider2D>();
+        _col = GetComponent<BoxCollider2D>();
         _sr = GetComponent<SpriteRenderer>();
+
         enemyHeight = _col.bounds.size.y;
     }
 
@@ -172,7 +173,7 @@ public class EnemyBehavior : MonoBehaviour
 
     bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, enemyHeight / 2 + 0.01f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, enemyHeight / 2 + 0.1f, groundLayer);
         return hit.collider != null;
     }
 

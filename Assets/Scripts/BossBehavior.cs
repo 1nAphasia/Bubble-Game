@@ -18,9 +18,6 @@ public class BossBehaviour : MonoBehaviour
     public EnemyState currentState;
     public bool isAttackCoolDown = true;
     public GameObject Bullet;
-    private int currentPointIndex = 0;
-    private float step;
-    private float startFallHeight;
     private Rigidbody2D _rb;
     private BoxCollider2D _col;
     private GameObject _player;
