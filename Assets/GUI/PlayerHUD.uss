@@ -20,3 +20,16 @@
 #BubColor {
   border-radius: 20px;
 }
+
+#WinningMenu{
+  background-color: rgba(55, 55, 55, 64);
+  border-radius: 20px;
+}
+
+#BackButton{
+  background-color: #ffffff;
+}
+
+#BackButton:hover{
+  background-color: #cccccc;
+}

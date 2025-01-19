@@ -4,7 +4,9 @@ using System.Xml.Serialization;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class BossBehaviour : MonoBehaviour
@@ -18,20 +20,22 @@ public class BossBehaviour : MonoBehaviour
     public EnemyState currentState;
     public bool isAttackCoolDown = true;
     public GameObject Bullet;
-    private Rigidbody2D _rb;
-    private BoxCollider2D _col;
     private GameObject _player;
     private int _enemyHP = 50;
     private SpriteRenderer _sr;
+    private VisualElement _gameEndingMenu;
+    private Button _endingButton;
 
     // Start is called before the first frame update
     void Start()
     {
+        var root = GameObject.Find("PlayerHUD").GetComponent<UIDocument>().rootVisualElement;
+        _gameEndingMenu = root.Q<VisualElement>("WinningMenu");
+        _endingButton = root.Q<Button>("BackButton");
         currentState = EnemyState.Idle;
-        _rb = GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
-        _col = GetComponent<BoxCollider2D>();
         _sr = GetComponent<SpriteRenderer>();
+        _endingButton.clicked += BacktoStartMenu;
     }
     // Update is called once per frame
     void Update()
@@ -73,6 +77,8 @@ public class BossBehaviour : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        Time.timeScale = 0;
+        _gameEndingMenu.style.display = DisplayStyle.Flex;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -81,7 +87,7 @@ public class BossBehaviour : MonoBehaviour
         {
             ApplyDamage(3);
         }
-        else if (collider.gameObject.name == "Red_Bubble")
+        else if (collider.gameObject.name == "Red_Bubble(Clone")
         {
             ApplyDamage(6);
         }
@@ -110,5 +116,9 @@ public class BossBehaviour : MonoBehaviour
         _sr.color = Color.red;
         yield return new WaitForSeconds(0.2f);
         _sr.color = Color.white;
+    }
+    void BacktoStartMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
     }
 }
