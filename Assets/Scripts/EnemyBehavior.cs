@@ -40,8 +40,6 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PatrolPoints.Add(new Vector2(2f, -4.28f));
-        PatrolPoints.Add(new Vector2(8f, -4.28f));
         currentState = EnemyState.Idle;
         _rb = GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
@@ -210,6 +208,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         _sr.color = Color.red;
         yield return new WaitForSeconds(0.2f);
-        _sr.color = Color.white;
+        Color deepgreen = new Color(105f / 255, 152f / 255, 113f / 255, 1);
+        _sr.color = deepgreen;
     }
 }

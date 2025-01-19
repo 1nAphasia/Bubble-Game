@@ -87,7 +87,7 @@ public class BossBehaviour : MonoBehaviour
         {
             ApplyDamage(3);
         }
-        else if (collider.gameObject.name == "Red_Bubble(Clone")
+        else if (collider.gameObject.name == "Red_Bubble(Clone)")
         {
             ApplyDamage(6);
         }
