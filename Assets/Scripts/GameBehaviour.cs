@@ -11,69 +11,79 @@ public class GameBehaviour : MonoBehaviour
     public List<GameObject> Enemies;
     public VisualElement escMenu;
     public VisualElement LoseMenu;
-    public int HP{
-        get{
+    public int HP
+    {
+        get
+        {
             return _playerHP;
         }
-        set{
-            _playerHP=value;
+        set
+        {
+            _playerHP = value;
         }
     }
-    private int _playerHP=5;
-    private bool _isPaused=false;
-    private bool _inputLocked=false;
+    private int _playerHP = 5;
+    private bool _isPaused = false;
+    private bool _inputLocked = false;
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale=1;
-        var root=GameObject.Find("PlayerHUD").GetComponent<UIDocument>().rootVisualElement;
-        escMenu=root.Q<VisualElement>("EscMenu");
-        LoseMenu=root.Q<VisualElement>("GameLoseMenu");
-        var resume=escMenu.Q<Button>("ResumeButton");
-        var quit=escMenu.Q<Button>("QuitButton");
-        var restart=LoseMenu.Q<Button>("RestartButton");
-        resume.clicked+=ResumeGame;
-        quit.clicked+=ToStartMenu;
-        restart.clicked+=RestartScene;
+        Time.timeScale = 1;
+        var root = GameObject.Find("PlayerHUD").GetComponent<UIDocument>().rootVisualElement;
+        escMenu = root.Q<VisualElement>("EscMenu");
+        LoseMenu = root.Q<VisualElement>("GameLoseMenu");
+        var resume = escMenu.Q<Button>("ResumeButton");
+        var quit = escMenu.Q<Button>("QuitButton");
+        var restart = LoseMenu.Q<Button>("RestartButton");
+        resume.clicked += ResumeGame;
+        quit.clicked += ToStartMenu;
+        restart.clicked += RestartScene;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             Debug.Log("ESC PRESSED!");
-            if(_isPaused)
-            ResumeGame();
+            if (_isPaused)
+                ResumeGame();
             else
-            PauseGame();
+                PauseGame();
         }
-        if(_playerHP<=0){
-            LoseMenu.style.display=DisplayStyle.Flex;
-            Time.timeScale=0;
+        if (_playerHP <= 0)
+        {
+            LoseMenu.style.display = DisplayStyle.Flex;
+            Time.timeScale = 0;
         }
 
     }
-    void LateUpdate(){
+    void LateUpdate()
+    {
 
     }
 
-    void ResumeGame(){
-        escMenu.style.display=DisplayStyle.None;
-        Time.timeScale=1f;
-        _isPaused=false;
+    void ResumeGame()
+    {
+        escMenu.style.display = DisplayStyle.None;
+        Time.timeScale = 1f;
+        _isPaused = false;
     }
 
-    void PauseGame(){
-        escMenu.style.display=DisplayStyle.Flex;
-        Time.timeScale=0f;
-        _isPaused=true;
+    void PauseGame()
+    {
+        escMenu.style.display = DisplayStyle.Flex;
+        Time.timeScale = 0f;
+        _isPaused = true;
     }
 
-    void ToStartMenu(){
+    void ToStartMenu()
+    {
         SceneManager.LoadScene("Startmenu");
     }
-    void RestartScene(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+    void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
 
