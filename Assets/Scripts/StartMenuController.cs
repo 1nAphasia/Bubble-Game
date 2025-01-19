@@ -60,7 +60,7 @@ public class StartMenuBehaviour : MonoBehaviour
     {
         // 加载游戏的第一个关卡
         Debug.Log("Start Loading!");
-        SceneManager.LoadScene(firstLevelSceneName);
+        SceneManager.LoadScene("StartCG");
     }
 
     void QuitGame()
