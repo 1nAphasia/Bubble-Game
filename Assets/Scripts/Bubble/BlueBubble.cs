@@ -18,10 +18,6 @@ public class BlueBubble : Bubble
     protected override void Update()
     {
         base.Update();
-        if(targetObject == null && stateMachine.currentState == captureState)
-        {
-            Vanish();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,6 +25,8 @@ public class BlueBubble : Bubble
         if (other.gameObject.name == "Enemy" && stateMachine.currentState!=captureState)
         {
             targetObject = other.gameObject;
+            EnemyBehavior enemy = targetObject.GetComponent<EnemyBehavior>();
+            enemy.inbubble = this;
             stateMachine.ChangeState(captureState);
             CapturingEnemy();
         }
@@ -41,6 +39,7 @@ public class BlueBubble : Bubble
             Player player = targetObject.GetComponent<Player>();
             if (player != null) {
                 player.stateMachine.ChangeState(player.inBubbleState);
+                player.inBubble = this;
             }
             CapturingPlayer();
         }
@@ -62,12 +61,13 @@ public class BlueBubble : Bubble
         float elapsedTime = 0f;
         float initialDrag = 2f;
         var rb = targetObject.GetComponent<Rigidbody2D>();
-        while (elapsedTime < time)
+        while (elapsedTime < time && targetObject)
         {
             rb.drag = Mathf.Lerp(0, initialDrag, elapsedTime / time);
             yield return null;
         }
-        rb.velocity = new Vector2(0f, 0f);
+        if(targetObject)
+            rb.velocity = new Vector2(0f, 0f);
 
     }
     private IEnumerator SetEnemyState(float delay, EnemyBehavior.EnemyState EState)
@@ -114,7 +114,7 @@ public class BlueBubble : Bubble
     {
         Vector3 InitialScale = transform.localScale;
         float elapsedTime = 0f;
-        while (elapsedTime < time)
+        while (elapsedTime < time && targetObject)
         {
             //同样的根据时间来将Scale和transform.position动态插值到目标值。
             Vector3 EnemyPos = targetObject.transform.position;

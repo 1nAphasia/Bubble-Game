@@ -26,7 +26,14 @@ public class PlayerInBubbleState : PlayerState
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            player.inBubble.Vanish();
             stateMachine.ChangeState(player.jumpState);
+        }
+
+        if (xInput != 0)
+        {
+            player.inBubble.Vanish();
+            stateMachine.ChangeState(player.moveState);
         }
 
     }

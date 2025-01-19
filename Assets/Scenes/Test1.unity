@@ -9519,6 +9519,7 @@ MonoBehaviour:
   Bullet: {fileID: 2323602764995419931, guid: 40e967ab0398fee4bbf777cb61680313, type: 3}
   enemyHeight: 0
   oneHPTakenPerHeight: 2
+  inbubble: {fileID: 0}
 --- !u!50 &433410666
 Rigidbody2D:
   serializedVersion: 4
@@ -45877,7 +45878,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 7.16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -49756,7 +49757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266578789}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 82, y: 13, z: 0.8}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
@@ -49854,7 +49855,7 @@ MonoBehaviour:
   m_Follow: {fileID: 261939282}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 9
+    OrthographicSize: 7.16
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
