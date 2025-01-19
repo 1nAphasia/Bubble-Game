@@ -23,6 +23,10 @@ public class PlayerInBubbleState : PlayerState
     {
         base.Update();
 
+        if (player.inBubble == null)
+        {
+            stateMachine.ChangeState(player.airState);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
