@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BlueBubble : Bubble
 {
@@ -22,7 +21,7 @@ public class BlueBubble : Bubble
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name.Contains("Enemy") && stateMachine.currentState!=captureState)
+        if (other.gameObject.name.Contains("Enemy") && stateMachine.currentState != captureState)
         {
             targetObject = other.gameObject;
             EnemyBehavior enemy = targetObject.GetComponent<EnemyBehavior>();
@@ -37,7 +36,8 @@ public class BlueBubble : Bubble
             //这一行设置Player状态机 也就是中断玩家的输入的Captured状态
             stateMachine.ChangeState(captureState);
             Player player = targetObject.GetComponent<Player>();
-            if (player != null) {
+            if (player != null)
+            {
                 player.stateMachine.ChangeState(player.inBubbleState);
                 player.inBubble = this;
             }
@@ -66,7 +66,7 @@ public class BlueBubble : Bubble
             rb.drag = Mathf.Lerp(0, initialDrag, elapsedTime / time);
             yield return null;
         }
-        if(targetObject)
+        if (targetObject)
             rb.velocity = new Vector2(0f, 0f);
 
     }
