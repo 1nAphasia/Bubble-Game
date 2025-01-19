@@ -114,6 +114,7 @@ public class BossBehaviour : MonoBehaviour
     }
     void BacktoStartMenu()
     {
-        SceneManager.LoadScene("StartMenu");
+       Time.timeScale = 1;
+       SceneManager.LoadScene("StartMenu");
     }
 }

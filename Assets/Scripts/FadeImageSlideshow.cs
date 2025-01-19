@@ -9,6 +9,7 @@ public class FadeImageSlideshow : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         Animator animator = GetComponent<Animator>();
         animator.SetBool("Start", true);
         picTimer = 5f;
@@ -21,6 +22,7 @@ public class FadeImageSlideshow : MonoBehaviour
         if (picTimer <= 0)
         {
             SceneManager.LoadScene("Test1");
+            picTimer = 5f;
         }
     }
 }
