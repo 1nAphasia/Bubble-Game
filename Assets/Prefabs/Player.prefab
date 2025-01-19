@@ -31,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 60596689881047471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6729767502455587325
+--- !u!1 &5758232130715505817
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,9 +39,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 943900084554281906}
-  - component: {fileID: 4697352048159237054}
-  - component: {fileID: 1252573649997198500}
+  - component: {fileID: 5393641702136586723}
+  - component: {fileID: 2356844393536357614}
+  - component: {fileID: 4134065211894993433}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -49,28 +49,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &943900084554281906
+--- !u!4 &5393641702136586723
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6729767502455587325}
+  m_GameObject: {fileID: 5758232130715505817}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.17172486, y: 0.19720595, z: 0.057890918}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 60596689881047471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4697352048159237054
+--- !u!212 &2356844393536357614
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6729767502455587325}
+  m_GameObject: {fileID: 5758232130715505817}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -105,25 +105,25 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.25882354, g: 0.47450984, b: 0.26666668, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6540afff2ae2a7145aacd004d2a9aaca, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 5.12, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1252573649997198500
+--- !u!95 &4134065211894993433
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6729767502455587325}
+  m_GameObject: {fileID: 5758232130715505817}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f30f7fadfca468a41acaa77b8f8ed469, type: 2}
@@ -196,13 +196,13 @@ Transform:
   m_GameObject: {fileID: 8899958412183785692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.48, y: -4.21, z: 0.032475248}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.98, y: -3.33, z: 0.032475248}
+  m_LocalScale: {x: 1.1836915, y: 1.0307462, z: 3.5112457}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 943900084554281906}
   - {fileID: 6039716107094065862}
   - {fileID: 6926541325884567635}
+  - {fileID: 5393641702136586723}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3243729030496341778
@@ -264,8 +264,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011795998, y: -0.011796236}
-  m_Size: {x: 0.97971153, y: 2.0144725}
+  m_Offset: {x: -0.0376721, y: -0.1361371}
+  m_Size: {x: 0.76235235, y: 1.765791}
   m_Direction: 0
 --- !u!114 &2226452859205852165
 MonoBehaviour:
@@ -288,5 +288,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  bubble: {fileID: 4885471105908556629, guid: caf1555eea6f8e14e94fe6f7b1ed1d16, type: 3}
+  bubble:
+  - {fileID: 4885471105908556629, guid: caf1555eea6f8e14e94fe6f7b1ed1d16, type: 3}
+  - {fileID: 4885471105908556629, guid: 3ac989c46933778458e1b1b06839a100, type: 3}
   bubbleSpeed: 15
+  inBubble: {fileID: 0}
+  bubble_choice: 0
