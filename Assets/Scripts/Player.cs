@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField] public GameObject[] bubble ;
     [SerializeField] public float bubbleSpeed = 10f;
 
+    public Bubble inBubble;
+
     public int bubble_choice = 0;
     public int facingDir { get; private set; } = 1;
     public bool facingRight { get; private set; } = true;

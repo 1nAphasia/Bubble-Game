@@ -36,7 +36,8 @@ public class BubbleState
 
     public virtual void Exit()
     {
-        bubble.anim.SetBool(animBoolName, false);
+        if(bubble.anim)
+            bubble.anim.SetBool(animBoolName, false);
     }
 
     public virtual void AnimationFinishTrigger()

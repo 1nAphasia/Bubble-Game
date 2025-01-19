@@ -35,6 +35,8 @@ public class EnemyBehavior : MonoBehaviour
     private Coroutine damageCoroutine;
     private SpriteRenderer _sr;
 
+    public Bubble inbubble;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -121,8 +123,12 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
+
     void Die()
     {
+
+        inbubble.stateMachine.ChangeState(inbubble.vanishState);
+
         Destroy(gameObject);
     }
 
