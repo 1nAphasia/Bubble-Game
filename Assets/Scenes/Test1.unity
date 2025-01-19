@@ -8626,8 +8626,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5577478b5a1ef2d4abfff9f1abc8a43a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualTreeAsset: {fileID: 0}
+  visualTreeAsset: {fileID: 9197481963319205126, guid: c247096081101fb4d99dc1cd61a282c3, type: 3}
   gameManager: {fileID: 0}
+  bubbleChoice: 0
 --- !u!1 &1214034119
 GameObject:
   m_ObjectHideFlags: 0

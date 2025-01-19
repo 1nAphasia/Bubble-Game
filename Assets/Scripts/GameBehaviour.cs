@@ -9,9 +9,6 @@ public class GameBehaviour : MonoBehaviour
 {
     public int EnemyCount;
     public List<GameObject> Enemies;
-    private int _playerHP=5;
-    private bool _isPaused=false;
-    private bool _inputLocked=false;
     public VisualElement escMenu;
     public VisualElement LoseMenu;
     public int HP{
@@ -22,6 +19,9 @@ public class GameBehaviour : MonoBehaviour
             _playerHP=value;
         }
     }
+    private int _playerHP=5;
+    private bool _isPaused=false;
+    private bool _inputLocked=false;
     // Start is called before the first frame update
     void Start()
     {

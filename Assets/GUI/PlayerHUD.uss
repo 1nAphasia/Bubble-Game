@@ -16,3 +16,7 @@
 #RestartButton:hover {
   background-color: rgb(30, 227, 23);
 }
+
+#BubColor {
+  border-radius: 20px;
+}

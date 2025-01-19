@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
@@ -31,6 +32,7 @@ public class EnemyBehavior : MonoBehaviour
     private GameObject _player;
     private int _enemyHP=5;
     private Coroutine damageCoroutine;
+    private SpriteRenderer _sr;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,7 @@ public class EnemyBehavior : MonoBehaviour
         _rb=GetComponent<Rigidbody2D>();
         _player=GameObject.Find("Player");
         _col=GetComponent<CapsuleCollider2D>();
+        _sr=GetComponent<SpriteRenderer>();
         enemyHeight=_col.bounds.size.y;
     }
 
@@ -125,15 +128,11 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // 检测是否与地面碰撞
         if (isFalling && IsGroundLayer(collision))
         {
             isFalling = false;
-            
-            // 计算下落高度差
-            float fallHeight = startFallHeight - transform.position.y;
 
-            // 如果高度差超过最小触发高度，给予掉落伤害
+            float fallHeight = startFallHeight - transform.position.y;
             if (fallHeight >= oneHPTakenPerHeight)
             {
                 int damage = (int)(fallHeight/oneHPTakenPerHeight);
@@ -147,6 +146,9 @@ public class EnemyBehavior : MonoBehaviour
         Debug.Log($"Enemy took {damage} damage,and {_enemyHP} left!");
         if(_enemyHP<=0){
             Die();
+        }
+        else{
+            StartCoroutine(FlashRed());
         }
     }
 
@@ -164,7 +166,6 @@ public class EnemyBehavior : MonoBehaviour
         isAttackCoolDown=true;
     }
 
-
     private IEnumerator ApplyDamageOverTime(){
         while(true){
             _enemyHP-=1;
@@ -173,7 +174,15 @@ public class EnemyBehavior : MonoBehaviour
                 Die();
                 yield break;
             }
+            else{
+                StartCoroutine(FlashRed());
+            }
             yield return new WaitForSeconds(1f);
         }
+    }
+    private IEnumerator FlashRed(){
+        _sr.color=Color.red;
+        yield return new WaitForSeconds(0.2f);
+        _sr.color=Color.white;
     }
 }
